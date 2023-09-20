@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/bootstrap.css">
+    <link rel="stylesheet" href="./style/fontawesome/css/all.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>System</title>
+</head>
+<body>
+    <div class="navbar navbar-dark bg-dark d-flex justify-content-between px-5 mb-3">
+        <h2 class="text-info">Employees System</h2>
+        <button class="btn btn-lg text-info" type="button" data-bs-toggle="modal" data-bs-target="#addUserModal">Add User</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-12">
+            </div>
+            <div id="col-conatiner" class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</i></th>
+                            <th>Name</th>
+                            <th>Date of birth</th>
+                            <th>Skills</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBody" class="table-group-divider">
+                        
+                    </tbody>
+                  </table>
+                  <h1 id="emptyMsg" class="text-center text-capitalize mt-5">There are no employees yet, Add one!</h1>
+            </div>
+        </div>
+    </div>
+
+   
+    
+
+    <!----- add User Modal --------------------->
+    <!-- ------------------------------------- -->
+    
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="addUserModal" tabindex="-1"  role="dialog" aria-labelledby="addUserModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModal">Add Employee</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   
+                    <input type="text" id="name" class="form-control"  placeholder="Enter employee name">
+                    <input type="date" id="dOfBirth" class="form-control my-3"  placeholder="Enter employee date of birth ">
+                    <div class="mb-3">
+                      <label for="skills" class="form-label">Select skills (you can select multiple press ctrl)</label>
+                      <select multiple class="form-select form-select-lg" name="skills" id="skills">
+                            <option selected disabled>Select one</option>
+                            <option value="javaScript">javaScript</option>
+                            <option value="HTML">HTML</option>
+                            <option value="Css">Css</option>
+                            <option value="Bootstrap">Bootstrap</option>
+                            <option value="Node">Node</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button"  id="addBtn" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!---------------- Delete Modal -------------------->
+    <!---------------- ------------- -------------------->
+    <!-- Button trigger modal -->
+    
+    
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">Delete Confirmation</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        Add rows here
+                    </div>
+                </div>
+                <div id="modalFooter" class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="deleteBtn" data-bs-dismiss="modal" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+       <!----- Edit Modal --------------------->
+    <!-- ------------------------------------- -->
+    
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="editModal" tabindex="-1"  role="dialog" aria-labelledby="editModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModal">Edit Employee</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   
+                    <input type="text" id="newName" class="form-control"  placeholder="Enter employee name">
+                    <input type="date" id="newDate" class="form-control my-3"  placeholder="Enter employee date of birth ">
+                    <div class="mb-3">
+                      <label for="skills" class="form-label">Select skills (you can select multiple press ctrl)</label>
+                      <select multiple class="form-select form-select-lg" name="skills" id="newSkills">
+                            <option selected disabled>Select one</option>
+                            <option value="javaScript">javaScript</option>
+                            <option value="HTML">HTML</option>
+                            <option value="Css">Css</option>
+                            <option value="Bootstrap">Bootstrap</option>
+                            <option value="Node">Node</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" data-bs-dismiss="modal" id="editBtn" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="style/fontawesome/js/all.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Include jQuery from a CDN -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+</body>
+</html>
